@@ -1,0 +1,94 @@
+// Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, the Altera Quartus Prime License Agreement,
+// the Altera MegaCore Function License Agreement, or other 
+// applicable license agreement, including, without limitation, 
+// that your use is for the sole purpose of programming logic 
+// devices manufactured by Altera and sold by Altera or its 
+// authorized distributors.  Please refer to the applicable 
+// agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench template that is freely editable to  
+// suit user's needs .Comments are provided in each section to help the user    
+// fill out necessary details.                                                  
+// *****************************************************************************
+// Generated on "04/18/2016 14:58:25"
+                                                                                
+// Verilog Test Bench template for design : scheme
+// 
+// Simulation tool : ModelSim-Altera (Verilog)
+// 
+
+`timescale 10 ns/ 10 ps
+module HCSR04_vlg_tst();
+// constants                                           
+// test vector input registers
+reg clk;
+reg echo;
+reg get;
+reg reset;
+// wires                                               
+wire trigger;
+wire [15:0]  data;
+wire ready;
+
+
+// assign statements (if any)                          
+HCSR04 HCSR04 (
+// port map - connection between master ports and signals/registers   
+	.clk(clk),
+	.reset(reset),
+	.get(get),
+	.echo(echo),
+	.trigger(trigger),
+	.data(data),
+	.ready(ready)	
+);
+initial
+begin
+clk = 1'b0;
+get = 1'b1;
+reset = 1'b1;
+#50
+reset = 1'b0;
+#100
+reset = 1'b1;
+#150
+get = 1'b0;
+#150
+get = 1'b1;
+#2415000
+get = 1'b0;
+#150
+get = 1'b1;
+end   
+
+initial                                                
+begin
+echo = 1'b0;
+#1500
+echo = 1'b1;
+$display("length ~= 400 cm");
+#2403800
+echo = 1'b0;
+$display("length ~= 19.22 cm");
+#12000
+echo = 1'b1;
+#11600
+echo = 1'b0;
+#5000
+$stop;
+$display("Running testbench");
+end                                                  
+always begin                                                  
+#25 clk = ~clk;
+end        
+                                             
+endmodule
+
