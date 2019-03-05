@@ -1,7 +1,0 @@
-
-State Machine - |scheme|HCSR04:inst|state
-Name state.STATE_FINISH state.STATE_ECHO state.STATE_GET state.STATE_IDLE 
-state.STATE_IDLE 0 0 0 0 
-state.STATE_GET 0 0 1 1 
-state.STATE_ECHO 0 1 0 1 
-state.STATE_FINISH 1 0 0 1 
